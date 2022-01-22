@@ -17,7 +17,7 @@ contract SecureContract {
     function bid() external payable {
         require(msg.value > highestBid);
 
-        refunds[leader] = refunds[leader] + highestBid;
+        refunds[leader] += highestBid;
 
         leader = payable(msg.sender);
         highestBid = msg.value;
